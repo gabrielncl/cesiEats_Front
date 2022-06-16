@@ -1,4 +1,4 @@
-# test
+# restaurant
 
 ## Project setup
 ```
