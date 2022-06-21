@@ -11,6 +11,11 @@ const routes: Array<RouteConfig> = [
     component: HomeView
   },
   {
+    path: '/',
+    name: 'cart',
+    component: HomeView
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
