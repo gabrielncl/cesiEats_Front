@@ -11,11 +11,6 @@ const routes: Array<RouteConfig> = [
     component: HomeView
   },
   {
-    path: '/',
-    name: 'cart',
-    component: HomeView
-  },
-  {
     path: '/about',
     name: 'about',
     // route level code-splitting
@@ -26,8 +21,6 @@ const routes: Array<RouteConfig> = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
   routes
 })
 
