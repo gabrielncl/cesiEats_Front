@@ -1,56 +1,56 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+  <div>
+    <b-navbar type="dark" variant="dark">
+      <b-navbar-nav class="fullwidth d-block">
+        <b-row>
+          <b-col>
+            <b-nav-item class="cesieats" to="/">CESIEats</b-nav-item>
+          </b-col>
+          <b-col cols="8">
+            <b-form-input class="search-input w-75" placeholder="User"></b-form-input>
+          </b-col>
+          <b-col>
+            <b-button pill class="auto-margin" @click="gotoLogin()">Login</b-button>
+            <b-button pill @click="gotoRegister()">Register</b-button>
+          </b-col>
+        </b-row>
+      </b-navbar-nav>
+    </b-navbar>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+    <router-view></router-view>
+  </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<style>
+  .auto-margin{
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  .fullwidth{
+    width: 100%;
+  }
+  .cesieats{
+    font-size: large;
+    margin-right: 50px;
+  }
+  .search-input{
+    width: 45%;
+    margin-right: 10px;
+  }
+</style>
 
-export default Vue.extend({
-  name: 'App',
-
-  data: () => ({
-    //
-  }),
-});
+<script lang="ts" >
+export default {
+  // data: {
+  //   user
+  // },
+  methods:{
+    async gotoLogin(this:any){
+      this.$router.push('/login'); 
+    },
+    async gotoRegister(this: any) {
+      this.$router.push('/register');
+    }
+}
+}
 </script>
