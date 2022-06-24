@@ -75,9 +75,9 @@ import Vue from "vue";
 export default Vue.extend({
     name: "RegisterView",
     methods: {
-    verifyInfos: function (event) {
-        alert('sign in')
-    }
+    // verifyInfos: function (event) {
+    //     alert('sign in')
+    // }
   }
 });
 
