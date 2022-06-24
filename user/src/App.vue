@@ -7,7 +7,7 @@
             <b-nav-item class="cesieats" to="/">CESIEats</b-nav-item>
           </b-col>
           <b-col cols="8">
-            <b-form-input class="search-input w-75" placeholder="Restaurant"></b-form-input>
+            <b-form-input class="search-input w-75" placeholder="User"></b-form-input>
           </b-col>
           <b-col>
             <b-button pill class="auto-margin" @click="gotoLogin()">Login</b-button>
@@ -26,16 +26,13 @@
     margin-left: 8px;
     margin-right: 8px;
   }
-
   .fullwidth{
     width: 100%;
   }
-
   .cesieats{
     font-size: large;
     margin-right: 50px;
   }
-
   .search-input{
     width: 45%;
     margin-right: 10px;
@@ -44,7 +41,6 @@
 
 <script lang="ts" >
 export default {
-
   // data: {
   //   user
   // },
@@ -56,11 +52,5 @@ export default {
       this.$router.push('/register');
     }
 }
-
-
-
-
 }
 </script>
-
-
