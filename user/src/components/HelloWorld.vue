@@ -1,150 +1,120 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        />
-      </v-col>
+  <v-app id="inspire">
+    <v-app-bar
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
+      app
+      color="black"
+      dark
+    >
+        <!--      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />-->
 
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a
-            href="https://community.vuetifyjs.com"
-            target="_blank"
-          >Discord Community</a>
-        </p>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
+      <v-toolbar-title
+        style="width: 350px"
       >
-        <h2 class="headline font-weight-bold mb-3">
-          What's next?
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
+        <a href="/" class="white--text" style="text-decoration: none"><v-icon>mdi-truck</v-icon>&nbsp;CesiEats</a>
+      </v-toolbar-title>
+      <v-text-field
+        flat
+        solo-inverted
+        hide-details
+        prepend-inner-icon="mdi-magnify"
+        label="Search"
+        class="hidden-sm-and-down pl-10 ml-4"
+      />
+      <v-spacer />
+      <v-btn icon href="/profile">
+        <v-icon>mdi-account-circle</v-icon>
+      </v-btn>
+      <v-btn v-on="on" href="#" icon>
+        <v-badge
+          content="1"
+          value="1"
+          color="green"
+          overlap
+        >
+          <v-icon>mdi-bell</v-icon>
+        </v-badge>
+      </v-btn>
+      <v-btn v-on="on" href="/cart" icon>
+        <v-badge
+          content="4"
+          value="4"
+          color="green"
+          overlap
+        >
+          <v-icon>mdi-cart</v-icon>
+        </v-badge>
+      </v-btn>
+      
+    </v-app-bar>
+    <v-content>
+      <v-bottom-navigation
+        :value="activeBtn"
+        color="primary"
+        horizontal
       >
-        <h2 class="headline font-weight-bold mb-3">
-          Important Links
-        </h2>
+        <a href="/" class="v-btn">
+          <span>Restaurants</span>
+        </a>
 
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
+        <a href="/product" class="v-btn">
+          <span>Commandes</span>
+        </a>
+      </v-bottom-navigation>
+    </v-content>
+      <router-view/>
+   
+    <v-footer
+      :padless="true"
+    >
+      <v-card
+        flat
+        tile
+        width="100%"
+        class="secondary white--text text-center"
       >
-        <h2 class="headline font-weight-bold mb-3">
-          Ecosystem
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
+        <v-card-text>
+          <v-btn
+            class="mx-4 white--text"
+            icon
           >
-            {{ eco.text }}
-          </a>
-        </v-row>
-      </v-col>
-    </v-row>
-  </v-container>
+            <v-icon size="24px">mdi-home</v-icon>
+          </v-btn>
+          <v-btn
+            class="mx-4 white--text"
+            icon
+          >
+            <v-icon size="24px">mdi-email</v-icon>
+          </v-btn>
+
+        </v-card-text>
+
+        <v-card-text class="white--text pt-0">
+          Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-text class="white--text">
+          {{ new Date().getFullYear() }} — <strong>CesiEats</strong>
+        </v-card-text>
+      </v-card>
+    </v-footer>
+  </v-app>
 </template>
-
 <script>
-  export default {
-    name: 'HelloWorld',
-    data: () => ({
-      ecosystem: [
-        {
-          text: 'vuetify-loader',
-          href: 'https://github.com/vuetifyjs/vuetify-loader',
+    export default {
+        data () {
+            return {
+                items: [
+                    { title: 'T-Shirts' },
+                    { title: 'Jackets' },
+                    { title: 'Shirts' },
+                    { title: 'Jeans' },
+                    { title: 'Shoes' },
+                ],
+                activeBtn: 1,
+            }
         },
-        {
-          text: 'github',
-          href: 'https://github.com/vuetifyjs/vuetify',
-        },
-        {
-          text: 'awesome-vuetify',
-          href: 'https://github.com/vuetifyjs/awesome-vuetify',
-        },
-      ],
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com',
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com',
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuejs.com/vuetify',
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs',
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify',
-        },
-      ],
-      whatsNext: [
-        {
-          text: 'Explore components',
-          href: 'https://vuetifyjs.com/components/api-explorer',
-        },
-        {
-          text: 'Select a layout',
-          href: 'https://vuetifyjs.com/getting-started/pre-made-layouts',
-        },
-        {
-          text: 'Frequently Asked Questions',
-          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-        },
-      ],
-    }),
-  }
+    }
 </script>
