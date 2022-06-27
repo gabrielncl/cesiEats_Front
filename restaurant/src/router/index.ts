@@ -1,40 +1,76 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import LoginView from '../views/LoginView.vue'
-import RegisterView from '../views/RegisterView.vue'
+import Layout from '../components/Layout.vue'
+import Login from '../components/Login.vue'
+import Register from '../components/Register.vue'
+//import Profile from '../components/Profile.vue'
+import Home from '../components/Home.vue'
+//import Cart from '../components/Cart.vue' 
+
 
 Vue.use(VueRouter)
 
-const routes: Array<RouteConfig> = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: LoginView
-  },
-  {
-    path: '/register',
-    name: 'register',
-    component: RegisterView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
+export default new VueRouter({
+  routes: [
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
+    },
+    {
+      path: '/',
+      component: Layout,
+      children:[
+        {
+          path: '/home',
+          name: 'home',
+          component: Home
+        },
+       /* {
+          path: '/cart',
+          name: 'cart',
+          component: Cart
+        },
+        {
+          path: '/profile',
+          name: 'profile',
+          component: Profile
+        },
+        {
+          path:'/shop',
+          component:Shop,
+          name:'Shop'
+        },
+        {
+          path:'/product',
+          component:Product,
+          name:'Product'
+        },
+        {
+          path:'/blog',
+          component:Blog,
+          name:'Blog'
+        },
+        {
+          path:'/post',
+          component:Post,
+          name:'Post'
+        },
+        {
+          path:'/cart',
+          component:Cart,
+          name:'Cart'
+        }*/
+      ]
 
-const router = new VueRouter({
-  routes
-})
-
-export default router
+    }
+  ],
+  mode: 'history'
+},
+)
 
