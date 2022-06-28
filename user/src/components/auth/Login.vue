@@ -58,7 +58,6 @@
 
 <script>
 import axios from "axios";
-import { loginUser } from "../../middleware/authentication.js";
 export default {
 	name: "Login",
 	data() {
@@ -76,7 +75,7 @@ export default {
 			const token = response.data.token;
 			localStorage.setItem("token", token);
 			if (token) {
-				this.$router.push("/home");
+				this.$router.push("/shop/restaurants");
 			} else {
 				this.$router.push("/");
 			}
