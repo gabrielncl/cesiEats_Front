@@ -1,16 +1,27 @@
 <template>
-  <hello-world />
+  <div>
+    <v-container>
+      <Navbar/>
+      <div class="test-bleu">adzfegrhtyjukilomp</div>
+    </v-container>
+  </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
-  import HelloWorld from '../components/HelloWorld.vue'
+<script>
+  import Navbar from "../components/Navbar"
 
-  export default Vue.extend({
+  export default ({
     name: 'Home',
 
     components: {
-      HelloWorld,
+      Navbar,
     },
   })
 </script>
+
+<style>
+.test-bleu {
+  background: blue;
+  background-color: blue;
+}
+</style>
