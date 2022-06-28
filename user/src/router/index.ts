@@ -4,6 +4,7 @@ import Cart from "../views/CartView.vue";
 import Shop from "../views/ShopView.vue";
 import Login from "../views/LoginView.vue";
 import Register from "../views/RegisterView.vue";
+import Profile from "../views/ProfileView.vue";
 import authentication from "../middleware/authentication.js";
 
 Vue.use(VueRouter);
@@ -40,6 +41,12 @@ const routes: Array<RouteConfig> = [
 		path: "/shop/restaurants",
 		name: "restaurants",
 		component: Shop,
+		beforeEnter: authentication,
+	},
+	{
+		path: "/profile",
+		name: "profile",
+		component: Profile,
 		beforeEnter: authentication,
 	},
 ];
