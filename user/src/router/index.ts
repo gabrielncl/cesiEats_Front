@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Layout from '../views/LayoutView.vue'
-import Login from '../views/LoginView.vue'
-import Register from '../views/RegisterView.vue'
-import Profile from '../views/ProfileView.vue'
 import Home from '../views/HomeView.vue'
 import Cart from '../views/CartView.vue'
+import Shop from '../views/ShopView.vue'
+import Login from '../views/LoginView.vue'
+import Register from '../views/RegisterView.vue'
+import authentication from '../middleware/authentication.js'
 
 Vue.use(VueRouter)
 
@@ -13,7 +13,8 @@ const routes: Array<RouteConfig> = [
   {
     path: '/home',
     name: 'home',
-    component: Home
+    component: Home,
+    beforeEnter: authentication
   },
   {
     path: '/',
@@ -30,6 +31,11 @@ const routes: Array<RouteConfig> = [
     path: '/cart',
     name: 'cart',
     component: Cart
+  },
+  {
+    path: '/shop',
+    name: 'shop',
+    component: Shop
   },
 ]
 
