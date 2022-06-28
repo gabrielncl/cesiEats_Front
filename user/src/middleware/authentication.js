@@ -1,10 +1,12 @@
-const authentication = ((req, res, next) => {
+const authentication = (req, res, next) => {
 	const token = localStorage.getItem("token");
 	if (!token) {
 		return next({ path: "/" });
 	}
 	next();
-});
+};
+
+module.exports = authentication;
 
 /*const loginUser = () => {
 		const response = await axios.post("http://api.cesieats.loc/users/login", {
