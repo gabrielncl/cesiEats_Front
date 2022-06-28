@@ -7,10 +7,10 @@
 					<v-col :cols="12">
 						<v-card-text class="" tile outlined>
 							<div class="text-center">
-								<h1 class="mb-2">Restaurants</h1>
+								<h1 class="mb-2">Commander</h1>
 							</div>
-							<div v-for="restaurant in restaurants">
-								<Restaurant v-bind:name="restaurant.name" v-bind:id="restaurant._id"></Restaurant>
+							<div v-for="article in articles">
+								<Article v-bind:name="article.name" v-bind:id="article._id" v-bind:price="article.price"></Article>
 							</div>
 						</v-card-text>
 					</v-col>
@@ -24,26 +24,29 @@
 <script>
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Restaurant from "../components/Restaurant";
+import Article from "../components/Article";
 import axios from "axios";
 
 export default {
-	name: "Restaurants",
-	data() {
-		return {
-			restaurants: [],
-		};
-	},
-	mounted() {
-		axios.get("http://api.cesieats.loc/shop/").then((response) => {
-			this.restaurants = response.data.restaurants;
-			console.log(this.restaurants);
-		});
-	},
 	components: {
 		Navbar,
 		Footer,
-		Restaurant,
+		Article,
+	},
+	name: "Articles",
+	data() {
+		return {
+			articles: [],
+		};
+	},
+	mounted() {
+		const url = window.location.href;
+		const id = url.split("/")[url.split("/").length - 2];
+        console.log(id);
+		axios.get("http://api.cesieats.loc/shop/" + id).then((response) => {
+			this.articles = response.data.articles;
+			console.log(this.articles);
+		});
 	},
 };
 </script>

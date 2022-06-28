@@ -38,6 +38,11 @@
 		</v-card-text>
 
 		<v-divider class="mx-4"></v-divider>
+		<v-card-actions>
+			<v-btn :href="'/shop/' + id + '/articles'" text @click="reserve">
+				Voir Produits
+			</v-btn>
+		</v-card-actions>
 	</v-card>
 </template>
 
@@ -45,6 +50,10 @@
 export default {
 	props: {
 		name: {
+			type: String,
+			required: true,
+		},
+		id: {
 			type: String,
 			required: true,
 		},
