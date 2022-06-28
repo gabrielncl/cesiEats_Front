@@ -1,20 +1,19 @@
 <template>
-  <div class="updateUser">
-	<Navbar/>
-    <profile />
-	<Footer/>
-  </div>
+<Navbar/>
+<Footer/>
 </template>
+
+
 
 <script>
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import profile from "../components/Panel"
+import Profile from "../components/Profile"
 export default {
   components : {
     Navbar,
     Footer,
-    profile
+    Profile
   }
 };
 </script>
