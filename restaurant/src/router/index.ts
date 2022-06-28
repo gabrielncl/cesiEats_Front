@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/HomeView.vue'
 import Login from '../views/LoginView.vue'
 import Register from '../views/RegisterView.vue'
+import authentication from "../middleware/authentication.js";
 
 Vue.use(VueRouter)
 
@@ -11,6 +12,7 @@ const routes: Array<RouteConfig> = [
     path: '/home',
     name: 'home',
     component: Home,
+    beforeEnter: authentication,
   },
   {
     path: '/',
