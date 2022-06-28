@@ -6,6 +6,7 @@ import Register from '../views/RegisterView.vue'
 import Profile from '../views/ProfileView.vue'
 import Home from '../views/HomeView.vue'
 import Cart from '../views/CartView.vue'
+import Shop from '../views/ShopView.vue'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,11 @@ const routes: Array<RouteConfig> = [
     path: '/cart',
     name: 'cart',
     component: Cart
+  },
+  {
+    path: '/shop',
+    name: 'shop',
+    component: Shop
   },
 ]
 
