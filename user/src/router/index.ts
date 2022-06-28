@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Layout from '../views/LayoutView.vue'
-import Login from '../views/LoginView.vue'
-import Register from '../views/RegisterView.vue'
 import Profile from '../views/ProfileView.vue'
 import Home from '../views/HomeView.vue'
 import Cart from '../views/CartView.vue'
@@ -18,13 +16,13 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'login',
-    component: Login
+    component: () => import("../views/LoginView.vue")
 
   },
   {
     path: '/register',
     name: 'register',
-    component: Register
+    component: () => import("../views/RegisterView.vue")
   },
   {
     path: '/cart',

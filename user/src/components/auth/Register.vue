@@ -1,0 +1,74 @@
+<template>
+   <v-app>
+      <v-main>
+         <v-container fluid fill-height>
+            <v-layout align-center justify-center>
+               <v-flex xs12 sm8 md4>
+                    <v-card elevation="0">
+                        <div class="text-center">
+                            <h1 class="mb-2">Créer un compte</h1>
+                        </div>
+                        <v-card-text>
+                            <v-form
+                             @submit.prevent="registerUser">
+                            <v-text-field v-model="register.firstname" label="Entrer un prénom" name="firstname" prepend-inner-icon="mdi-account" type="text" class="rounded-0"  outlined required></v-text-field>
+                            <v-text-field v-model="register.lastname" label="Entrer un nom de famille" name="lastname" prepend-inner-icon="mdi-account" type="text" class="rounded-0" outlined required></v-text-field>
+                            <v-text-field v-model="register.phone" label="Entrer un numéro de téléphone" name="phone" prepend-inner-icon="mdi-phone" type="text" class="rounded-0" outlined required></v-text-field>
+                            <v-text-field v-model="register.address" label="Entrer une adresse" name="address" prepend-inner-icon="mdi-home" type="text" class="rounded-0" outlined required></v-text-field>
+                            <v-text-field v-model="register.email" label="Entrer un email" name="email" prepend-inner-icon="mdi-email" type="email" class="rounded-0" outlined required></v-text-field>
+                            <v-text-field v-model="register.password" label="Enter un mot de passe" name="password" prepend-inner-icon="mdi-lock" type="password" class="rounded-0" outlined required></v-text-field>
+                            <v-btn typ="submit" class="rounded-0" color="#000000" x-large block dark>S'enregistrer</v-btn>
+                            <v-card-actions class="text--secondary">
+                                <v-spacer></v-spacer>
+                                <!-- <router-link :to="{ name: 'SignUp' }">Sign Up</router-link> -->
+                                Vous avez déjà un compte ? <a href="/" class="pl-2" style="color: #000000">Se connecter</a>
+                            </v-card-actions>
+                            </v-form>
+                        </v-card-text>
+                    </v-card>
+                </v-flex>
+            </v-layout>
+         </v-container>
+      </v-main>
+   </v-app>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      register: {
+        firstname: "",
+        lastname: "",
+        phone: "",
+        address: "",
+        email: "",
+        password: ""
+      }
+    };
+  },
+  methods: {
+    async registerUser() {
+      try {
+        let response = await this.$http.post("/user/register", this.register);
+        console.log(response);
+        let token = response.data.token;
+        if (token) {
+          localStorage.setItem("jwt", token);
+          this.$router.push("/");
+          swal("Success", "Registration Was successful", "success");
+        } else {
+          swal("Error", "Something Went Wrong", "error");
+        }
+      } catch (err) {
+        let error = err.response;
+        if (error.status == 409) {
+          swal("Error", error.data.message, "error");
+        } else {
+          swal("Error", error.data.err.message, "error");
+        }
+      }
+    }
+  }
+};
+
+</script>
