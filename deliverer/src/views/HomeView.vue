@@ -1,5 +1,9 @@
 <template>
-  <hello-world />
+  <div>
+    <v-container>
+      <Navbar/>
+    </v-container>
+  </div>
 </template>
 
 <script lang="ts">
@@ -14,3 +18,7 @@
     },
   })
 </script>
+
+<style>
+</style>
+
