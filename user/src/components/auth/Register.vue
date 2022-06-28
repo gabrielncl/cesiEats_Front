@@ -18,7 +18,6 @@
                     type="text"
                     class="rounded-0"
                     outlined
-                    required
                   ></v-text-field>
                   <v-text-field
                     v-model="lastname"
@@ -28,7 +27,6 @@
                     type="text"
                     class="rounded-0"
                     outlined
-                    required
                   ></v-text-field>
                   <v-text-field
                     v-model="phone"
@@ -38,7 +36,6 @@
                     type="text"
                     class="rounded-0"
                     outlined
-                    required
                   ></v-text-field>
                   <v-text-field
                     v-model="address"
@@ -48,7 +45,6 @@
                     type="text"
                     class="rounded-0"
                     outlined
-                    required
                   ></v-text-field>
                   <v-text-field
                     v-model="email"
@@ -58,7 +54,6 @@
                     type="email"
                     class="rounded-0"
                     outlined
-                    required
                   ></v-text-field>
                   <v-text-field
                     v-model="password"
@@ -68,15 +63,14 @@
                     type="password"
                     class="rounded-0"
                     outlined
-                    required
                   ></v-text-field>
                   <v-btn
-                    typ="submit"
-                    class="rounded-0"
-                    color="#000000"
-                    x-large
-                    block
-                    dark
+										class="rounded-0"
+										type="submit"
+										color="#000000"
+										x-large
+										block
+										dark
                     >S'enregistrer</v-btn
                   >
                   <v-card-actions class="text--secondary">
@@ -113,8 +107,7 @@ export default {
   },
   methods: {
     async registerUser() {
-      const response = await axios.post(
-        "http://api.cesieats.loc/users/register",
+      const response = await axios.post("http://api.cesieats.loc/users/register",
         {
           firstname: this.firstname,
           lastname: this.lastname,
