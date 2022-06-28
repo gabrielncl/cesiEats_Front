@@ -21,10 +21,6 @@
       />
       <v-spacer />
 
-      <v-text>
-        <a href="/commandes" class="white--text" style="text-decoration: none">Commandes</a>
-      </v-text>
-
       <v-btn icon href="/profile">
         <v-icon>mdi-account-circle</v-icon>
       </v-btn>

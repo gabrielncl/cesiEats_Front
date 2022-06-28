@@ -2,6 +2,7 @@
   <div>
     <v-container>
       <Navbar/>
+      <div class="test-bleu">adzfegrhtyjukilomp</div>
     </v-container>
   </div>
 </template>
@@ -17,3 +18,10 @@
     },
   })
 </script>
+
+<style>
+.test-bleu {
+  background: blue;
+  background-color: blue;
+}
+</style>
