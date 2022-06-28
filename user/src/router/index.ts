@@ -6,6 +6,7 @@ import Login from "../views/LoginView.vue";
 import Register from "../views/RegisterView.vue";
 import Profile from "../views/ProfileView.vue";
 import authentication from "../middleware/authentication.js";
+import Article from "../views/ArticleView.vue";
 
 Vue.use(VueRouter);
 
@@ -44,9 +45,9 @@ const routes: Array<RouteConfig> = [
 		beforeEnter: authentication,
 	},
 	{
-		path: "/profile",
-		name: "profile",
-		component: Profile,
+		path: "/shop/:id/articles",
+		name: "articles",
+		component: Article,
 		beforeEnter: authentication,
 	},
 ];
