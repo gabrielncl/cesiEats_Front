@@ -9,7 +9,7 @@
       <v-toolbar-title
         style="width: 350x"
       >
-        <a href="/home" class="white--text" style="text-decoration: none"><v-icon>mdi-truck</v-icon>&nbsp;CesiEats</a>
+        <a href="/shop/" class="white--text" style="text-decoration: none"><v-icon>mdi-truck</v-icon>&nbsp;CesiEats</a>
       </v-toolbar-title>
       <v-text-field
         flat
@@ -20,6 +20,14 @@
         class="hidden-sm-and-down pl-10 ml-4"
       />
       <v-spacer />
+
+      <v-btn icon href="/add-article">
+        <v-icon>mdi-plus-thick</v-icon>
+      </v-btn>
+
+      <v-btn icon href="/order">
+        <v-icon>mdi-truck</v-icon>
+      </v-btn>
 
       <v-btn icon href="/profile">
         <v-icon>mdi-account-circle</v-icon>

@@ -75,7 +75,7 @@ export default {
 			const token = response.data.token;
 			localStorage.setItem("token", token);
 			if (token) {
-				this.$router.push("/shop/restaurants");
+				this.$router.push("/order");
 			} else {
 				this.$router.push("/");
 			}

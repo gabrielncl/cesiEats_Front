@@ -4,7 +4,6 @@ import Cart from "../views/CartView.vue";
 import Shop from "../views/ShopView.vue";
 import Login from "../views/LoginView.vue";
 import Register from "../views/RegisterView.vue";
-import Panel from "../views/PanelView.vue";
 import authentication from "../middleware/authentication.js";
 import Article from "../views/ArticleView.vue";
 import Order from "../views/OrderView.vue";
@@ -31,13 +30,7 @@ const routes: Array<RouteConfig> = [
 		path: "/cart",
 		name: "cart",
 		component: Cart,
-    beforeEnter: authentication,
-	},
-	{
-		path: "/:id/user-panel",
-		name: "user-panel",
-		component: Panel,
-       beforeEnter: authentication,
+		beforeEnter: authentication,
 	},
 	{
 		path: "/shop/restaurants",

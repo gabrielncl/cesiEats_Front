@@ -1,7 +1,7 @@
 <template>
   <v-card
     class="mx-auto"
-    max-width="344"
+    min-width="800"
     outlined
     
   >
@@ -19,19 +19,14 @@
 
     <v-card-actions>
       <v-btn
+      href="/order-status"
         outlined
         rounded
         text
       >
-        Accept
+        Voir la commande
       </v-btn>
-      <v-btn
-        outlined
-        rounded
-        text
-      >
-        Decline
-      </v-btn>
+    
     </v-card-actions>
   </v-card>
 </template>

@@ -1,29 +1,24 @@
 <template>
   <div>
-    <Navbar />
+    <Navbar/>
     <v-container>
       <v-app>
-        <OrderConfirmation />
+        <h1 class="mb-2 text-center">Modifier le profil</h1>
+          <Profile/>
+        <Footer/>
       </v-app>
     </v-container>
-    <Footer />
   </div>
 </template>
-
 <script>
 import Navbar from "../components/Navbar";
-import OrderConfirmation from "../components/OrderConfirmation";
 import Footer from "../components/Footer";
-
+import Profile from "../components/Profile";
 export default {
-  name: "Order",
-
-  components: {
+  components : {
     Navbar,
-    OrderConfirmation,
     Footer,
-  },
+    Profile
+  }
 };
 </script>
-
-<style></style>

@@ -7,18 +7,17 @@
 
 		<v-card-title> {{ name }} </v-card-title>
 
-		<v-card-subtitle> {{ price }} € </v-card-subtitle>
+		<v-card-subtitle> {{ price }} € </v-card-subtitle>
 
 		<v-card-actions>
-			<v-btn v-on:click="addToCart" color="orange lighten-2" text>
-				Ajouter au panier
+			<v-btn :href="'/edit-article/' + id" color="orange lighten-2" text>
+				Modifier l'article
 			</v-btn>
-
 
 			<v-spacer></v-spacer>
 
 			<v-btn icon @click="show = !show">
-				<v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
+				<v-icon>show ? "mdi-chevron-up" : "mdi-chevron-down" </v-icon>
 			</v-btn>
 		</v-card-actions>
 
@@ -26,15 +25,13 @@
 			<div v-show="show">
 				<v-divider></v-divider>
 
-				<v-card-text> </v-card-text>
+				<v-card-text> description </v-card-text>
 			</div>
 		</v-expand-transition>
 	</v-card>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
 	data: () => ({
 		show: false,
@@ -51,11 +48,6 @@ export default {
 		id: {
 			type: String,
 			required: true,
-		},
-	},
-	methods: {
-		async addToCart() {
-			await axios.put("http://api.cesieats.loc/users/cart/" + this.id);
 		},
 	},
 };

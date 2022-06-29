@@ -3,13 +3,13 @@
 		<Navbar />
 		<v-container>
 			<v-app>
-				<h1 class="mb-2 text-center">Commander Articles & Menus</h1>
+				<h1 class="mb-2 text-center">Mes articles</h1>
 				<v-row no-gutters>
 					<div v-for="article in articles">
 						<Article
 							v-bind:name="article.name"
-							v-bind:id="article._id"
 							v-bind:price="article.price"
+							v-bind:id="article._id"
 						></Article>
 					</div>
 				</v-row>
@@ -38,13 +38,12 @@ export default {
 		};
 	},
 	mounted() {
-		const url = window.location.href;
-		const id = url.split("/")[url.split("/").length - 2];
-		console.log(id);
-		axios.get("http://api.cesieats.loc/shop/" + id).then((response) => {
-			this.articles = response.data.articles;
-			console.log(this.articles);
-		});
+		axios
+			.get("http://api.cesieats.loc/restaurants/articles")
+			.then((response) => {
+				this.articles = response.data.articles;
+				console.log(this.articles);
+			});
 	},
 };
 </script>
