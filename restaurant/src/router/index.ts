@@ -1,21 +1,23 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/HomeView.vue'
+import Shop from '../views/ShopView.vue'
 import Login from '../views/LoginView.vue'
 import Register from '../views/RegisterView.vue'
-import authentication from "../middleware/authentication.js";
+import Order from '../views/OrderView.vue'
+import AddArticle from '../views/AddArticleView.vue'
+//import authentication from "../middleware/authentication.js";
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/home',
-    name: 'home',
-    component: Home,
-    beforeEnter: authentication,
+    path: '/shop',
+    name: 'shop',
+    component: Shop,
+    //beforeEnter: authentication,
   },
   {
-    path: '/',
+    path: '/login',
     name: 'login',
     component: Login
 
@@ -24,6 +26,16 @@ const routes: Array<RouteConfig> = [
     path: '/register',
     name: 'register',
     component: Register
+  },
+  {
+    path: '/order',
+    name: 'order',
+    component: Order
+  },
+  {
+    path: '/add-article',
+    name: 'add-article',
+    component: AddArticle
   },
 ]
 
