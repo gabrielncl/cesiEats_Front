@@ -2,8 +2,12 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Login from "../views/LoginView.vue";
 import Register from "../views/RegisterView.vue";
-import authentication from "../middleware/authentication.js";
+// import authentication from "../middleware/authentication.js";
 import OrderConfirmation from "../views/OrderView.vue";
+import Orders from '../views/Orders.vue'
+import OrderStatus from '../views/OrderStatus.vue'
+
+const authentication = require('../middleware/authentication.js');
 
 Vue.use(VueRouter);
 
@@ -35,8 +39,22 @@ const routes: Array<RouteConfig> = [
 		component: OrderConfirmation,
     	beforeEnter: authentication,
 	},
-
-];
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
+    path: '/orders',
+    name: 'orders',
+    component: Orders
+  },
+  {
+    path: '/order-status',
+    name: 'order-status',
+    component: OrderStatus
+  },
+]
 
 const router = new VueRouter({
 	mode: "history",
