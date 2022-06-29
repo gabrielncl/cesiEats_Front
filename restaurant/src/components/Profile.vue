@@ -34,16 +34,15 @@
               prepend-icon="mdi-lock"
               >{{ password }}</v-text-field
             >
-
             <v-btn
-              href="/add-article"
+              href="/login"
               type="submit"
               color="orange lighten-2"
               text
               >Modifier le profil</v-btn
             >
             <v-btn color="red" text v-on:click="deleteRestaurant"
-              >Supprimer cet article</v-btn
+              >Supprimer mon profil</v-btn
             >
           </v-form>
         </v-card>
