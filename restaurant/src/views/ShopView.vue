@@ -1,23 +1,22 @@
 <template>
-  <div>
-    <Navbar/>
-    <v-container>
-      <v-app>
-        <h1 class="mb-2 text-center">Mes articles</h1>
-        <Article/>
-        <v-row no-gutters>
-          <div v-for="article in articles" :key="article._id">
-            <Article
-              v-bind:name="article.name"
-              v-bind:id="article._id"
-              v-bind:price="article.price"
-            ></Article>
-          </div>
-        </v-row>
-        <Footer/>
-      </v-app>
-    </v-container>
-  </div>
+	<div>
+		<Navbar />
+		<v-container>
+			<v-app>
+				<h1 class="mb-2 text-center">Mes articles</h1>
+				<Article />
+				<v-row no-gutters>
+					<div v-for="article in articles">
+						<Article
+							v-bind:name="article.name"
+							v-bind:price="article.price"
+						></Article>
+					</div>
+				</v-row>
+				<Footer />
+			</v-app>
+		</v-container>
+	</div>
 </template>
 
 <script>
@@ -38,17 +37,23 @@ export default {
 			articles: [],
 		};
 	},
+	mounted() {
+		axios
+			.get("http://api.cesieats.loc/restaurants/articles")
+			.then((response) => {
+				this.articles = response.data.articles;
+				console.log(this.articles);
+			});
+	},
 };
-
-
 </script>
 <style>
 .v-card--reveal {
-  align-items: center;
-  bottom: 0;
-  justify-content: center;
-  opacity: 0.5;
-  position: absolute;
-  width: 100%;
+	align-items: center;
+	bottom: 0;
+	justify-content: center;
+	opacity: 0.5;
+	position: absolute;
+	width: 100%;
 }
 </style>

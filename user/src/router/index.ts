@@ -31,13 +31,13 @@ const routes: Array<RouteConfig> = [
 		path: "/cart",
 		name: "cart",
 		component: Cart,
-    beforeEnter: authentication,
+		beforeEnter: authentication,
 	},
 	{
 		path: "/:id/user-panel",
 		name: "user-panel",
 		component: Panel,
-       beforeEnter: authentication,
+		beforeEnter: authentication,
 	},
 	{
 		path: "/shop/restaurants",

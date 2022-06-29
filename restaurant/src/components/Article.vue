@@ -5,9 +5,9 @@
 			height="200px"
 		></v-img>
 
-		<v-card-title> name </v-card-title>
+		<v-card-title> {{ name }} </v-card-title>
 
-		<v-card-subtitle> price € </v-card-subtitle>
+		<v-card-subtitle> {{ price }} € </v-card-subtitle>
 
 		<v-card-actions>
 			<v-btn color="orange lighten-2" text> Modifier l'article </v-btn>
@@ -23,9 +23,7 @@
 			<div v-show="show">
 				<v-divider></v-divider>
 
-				<v-card-text>
-                     description
-				</v-card-text>
+				<v-card-text> description </v-card-text>
 			</div>
 		</v-expand-transition>
 	</v-card>
@@ -39,6 +37,10 @@ export default {
 	props: {
 		name: {
 			type: String,
+			required: true,
+		},
+		price: {
+			type: Number,
 			required: true,
 		},
 	},

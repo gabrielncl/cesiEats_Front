@@ -45,7 +45,7 @@ const routes: Array<RouteConfig> = [
     component: EditArticle
   },
   {
-    path: '/profile/:id',
+    path: '/profile',
     name: 'profile',
     component: Profile
   },

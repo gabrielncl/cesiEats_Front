@@ -3,7 +3,7 @@
 		<Navbar />
 		<v-container>
 			<v-app>
-                <h1 class="mb-2 text-center">Commander Articles & Menus</h1>
+				<h1 class="mb-2 text-center">Commander Articles & Menus</h1>
 				<v-row no-gutters>
 					<div v-for="article in articles">
 						<Article
