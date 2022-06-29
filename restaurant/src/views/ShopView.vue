@@ -4,6 +4,7 @@
     <v-container>
       <v-app>
         <h1 class="mb-2 text-center">Mes articles</h1>
+        <Article/>
         <v-row no-gutters>
           <div v-for="article in articles" :key="article._id">
             <Article

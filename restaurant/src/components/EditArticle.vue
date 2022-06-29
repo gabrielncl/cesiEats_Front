@@ -5,7 +5,7 @@
         <v-card class="pa-5">
           <v-form
             ref="form"
-            @submit.prevent="submitForm"
+            @submit.prevent="updateForm"
             class="pa-5"
             enctype="multipart/form-data"
           >
@@ -33,8 +33,8 @@
               counter
               multiple
               label="Selectionner une image"
-              :rules="rules"
             ></v-file-input>
+            <v-img :src="`/${photo}`" width="120"></v-img>
 
             <v-btn
               @change="selectFile"
@@ -42,7 +42,10 @@
               type="submit"
               color="orange lighten-2"
               text
-              >Ajouter l'article</v-btn
+              >Modifier cet article</v-btn
+            >
+            <v-btn color="red" text @click="removeArticle(article._id)"
+              >Supprimer</v-btn
             >
           </v-form>
         </v-card>
@@ -53,7 +56,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: "AddArticle",
+  name: "UpdateArticle",
   data() {
     return {
       rules: [(value) => !!value || "Ce champs est obligatoire!"],
@@ -67,13 +70,18 @@ export default {
     selectFile(file) {
       this.photo = file[0];
     },
-    async submitForm() {
+    async updateForm() {
       await axios.post("http://api.cesieats.loc/restaurants/article/create", {
-      name: this.name,
-      price: this.price,
-      description: this.description,
-      photo: this.photo,
+        name: this.name,
+        price: this.price,
+        description: this.description,
+        photo: this.photo,
       });
+    },
+    async removeArticle(id) {
+      await axios.post(
+        "http://api.cesieats.loc/restaurants/article/delete/:id"
+      );
     },
   },
 };

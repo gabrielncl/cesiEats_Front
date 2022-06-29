@@ -3,8 +3,8 @@
     <Navbar/>
     <v-container>
       <v-app>
-        <h1 class="mb-2 text-center">Ajouter un article</h1>
-          <AddArticle/>
+        <h1 class="mb-2 text-center">Modifier un article</h1>
+          <EditArticle/>
         <Footer/>
       </v-app>
     </v-container>
@@ -13,12 +13,12 @@
 <script>
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AddArticle from "../components/AddArticle";
+import EditArticle from "../components/EditArticle";
 export default {
   components : {
     Navbar,
     Footer,
-    AddArticle
+    EditArticle
   }
 };
 </script>

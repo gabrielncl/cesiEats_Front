@@ -5,6 +5,8 @@ import Login from '../views/LoginView.vue'
 import Register from '../views/RegisterView.vue'
 import Order from '../views/OrderView.vue'
 import AddArticle from '../views/AddArticleView.vue'
+import EditArticle from '../views/EditArticleView.vue'
+import Profile from '../views/ProfileView.vue'
 //import authentication from "../middleware/authentication.js";
 
 Vue.use(VueRouter)
@@ -37,6 +39,17 @@ const routes: Array<RouteConfig> = [
     name: 'add-article',
     component: AddArticle
   },
+  {
+    path: '/edit-article/:id',
+    name: 'edit-article',
+    component: EditArticle
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile
+  },
+  
 ]
 
 const router = new VueRouter({
