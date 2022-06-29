@@ -4,7 +4,7 @@ import Cart from "../views/CartView.vue";
 import Shop from "../views/ShopView.vue";
 import Login from "../views/LoginView.vue";
 import Register from "../views/RegisterView.vue";
-import Profile from "../views/ProfileView.vue";
+import Panel from "../views/PanelView.vue";
 import authentication from "../middleware/authentication.js";
 import Article from "../views/ArticleView.vue";
 
@@ -33,10 +33,10 @@ const routes: Array<RouteConfig> = [
     beforeEnter: authentication,
 	},
 	{
-		path: "/user-panel",
+		path: "/:id/user-panel",
 		name: "user-panel",
-		/*component: Panel,*/
-    beforeEnter: authentication,
+		component: Panel,
+       beforeEnter: authentication,
 	},
 	{
 		path: "/shop/restaurants",

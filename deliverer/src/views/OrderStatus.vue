@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <Navbar/>
-      <OrderConfirmation/>
+      <OrderConfirmDelivery/>
       <Footer/>
     </v-container>
   </div>
@@ -10,20 +10,19 @@
 
 <script>
   import Navbar from "../components/Navbar"
-  import OrderConfirmation from "../components/OrderConfirmation"
   import Footer from "../components/Footer"
+  import OrderConfirmDelivery from "../components/OrderConfirmDelivery"
 
   export default ({
-    name: 'Order',
+    name: 'OrderStatus',
 
     components: {
       Navbar,
-      OrderConfirmation,
-      Footer
+      Footer,
+      OrderConfirmDelivery
     },
   })
 </script>
 
 <style>
-
 </style>
