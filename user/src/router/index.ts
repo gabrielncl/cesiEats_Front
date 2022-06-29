@@ -7,6 +7,7 @@ import Register from "../views/RegisterView.vue";
 import Profile from "../views/ProfileView.vue";
 import authentication from "../middleware/authentication.js";
 import Article from "../views/ArticleView.vue";
+import Order from "../views/OrderView.vue";
 
 Vue.use(VueRouter);
 
@@ -48,6 +49,12 @@ const routes: Array<RouteConfig> = [
 		path: "/shop/:id/articles",
 		name: "articles",
 		component: Article,
+		beforeEnter: authentication,
+	},
+	{
+		path: "/orders",
+		name: "orders",
+		component: Order,
 		beforeEnter: authentication,
 	},
 ];
