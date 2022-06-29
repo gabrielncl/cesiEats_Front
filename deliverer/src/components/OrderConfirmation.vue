@@ -11,7 +11,7 @@
           Num commande
         </div>
         <v-list-item-title class="text-h4 mb-1">
-          Nom client
+          {{ user }}
         </v-list-item-title>
         <v-list-item-subtitle>Adresse</v-list-item-subtitle>
       </v-list-item-content>

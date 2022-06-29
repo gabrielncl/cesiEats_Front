@@ -113,7 +113,7 @@ export default {
 			const token = response.data.token;
 			localStorage.setItem("token", token);
 			if (token) {
-				this.$router.push("/home");
+				this.$router.push("/order");
 			} else {
 				this.$router.push("/");
 			}
