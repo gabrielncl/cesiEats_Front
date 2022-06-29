@@ -4,6 +4,7 @@ import Cart from "../views/CartView.vue";
 import Shop from "../views/ShopView.vue";
 import Login from "../views/LoginView.vue";
 import Register from "../views/RegisterView.vue";
+import Profile from "../views/ProfileView.vue";
 import authentication from "../middleware/authentication.js";
 import Article from "../views/ArticleView.vue";
 
