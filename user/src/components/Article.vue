@@ -14,6 +14,7 @@
 				Ajouter au panier
 			</v-btn>
 
+
 			<v-spacer></v-spacer>
 
 			<v-btn icon @click="show = !show">

@@ -27,7 +27,7 @@
 				>
 			</v-label>
 
-			<v-btn icon href="/profile">
+			<v-btn icon :href=" id + '/user-panel'">
 				<v-icon>mdi-account-circle</v-icon>
 			</v-btn>
 			<v-btn href="#" icon>
