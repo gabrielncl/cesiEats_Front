@@ -4,12 +4,12 @@
 		<v-container>
 			<v-app>
 				<h1 class="mb-2 text-center">Mes articles</h1>
-				<Article />
 				<v-row no-gutters>
 					<div v-for="article in articles">
 						<Article
 							v-bind:name="article.name"
 							v-bind:price="article.price"
+							v-bind:id="article._id"
 						></Article>
 					</div>
 				</v-row>

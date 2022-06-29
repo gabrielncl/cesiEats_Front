@@ -10,7 +10,9 @@
 		<v-card-subtitle> {{ price }} € </v-card-subtitle>
 
 		<v-card-actions>
-			<v-btn color="orange lighten-2" text> Modifier l'article </v-btn>
+			<v-btn :href="'/edit-article/' + id" color="orange lighten-2" text>
+				Modifier l'article
+			</v-btn>
 
 			<v-spacer></v-spacer>
 
@@ -41,6 +43,10 @@ export default {
 		},
 		price: {
 			type: Number,
+			required: true,
+		},
+		id: {
+			type: String,
 			required: true,
 		},
 	},

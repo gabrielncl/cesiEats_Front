@@ -55,8 +55,6 @@ export default {
 	},
 	methods: {
 		async addToCart() {
-			console.log(this.id);
-			console.log(localStorage.getItem("token"));
 			await axios.put("http://api.cesieats.loc/users/cart/" + this.id);
 		},
 	},
