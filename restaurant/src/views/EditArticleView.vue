@@ -5,11 +5,11 @@
 			<v-app>
 				<h1 class="mb-2 text-center">Modifier un article</h1>
 				<EditArticle
-					v-bind:id="article._id"
-					v-bind:name="article.name"
-					v-bind:price="article.price"
-					v-bind:description="article.description"
-					v-bind:photo="article.photo"
+					v-bind:id="restaurant._id"
+					v-bind:name="restaurant.name"
+					v-bind:price="restaurant.address"
+					v-bind:description="restaurant.email"
+					v-bind:photo="restaurant.password"
 				/>
 				<Footer />
 			</v-app>
