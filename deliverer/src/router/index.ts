@@ -37,7 +37,7 @@ const routes: Array<RouteConfig> = [
 		path: "/order",
 		name: "order",
 		component: OrderConfirmation,
-    	beforeEnter: authentication,
+    	// beforeEnter: authentication,
 	},
   {
     path: '/register',
@@ -45,14 +45,10 @@ const routes: Array<RouteConfig> = [
     component: Register
   },
   {
-    path: '/orders',
-    name: 'orders',
-    component: Orders
-  },
-  {
     path: '/order-status',
     name: 'order-status',
     component: OrderStatus
+      // beforeEnter: authentication,
   },
 ]
 

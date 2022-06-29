@@ -11,7 +11,7 @@
 <script>
   import Navbar from "../components/Navbar"
   import OrderConfirmation from "../components/OrderConfirmation"
-  import Navbar from "../components/Footer"
+  import Footer from "../components/Footer"
 
   export default ({
     name: 'Order',
