@@ -24,16 +24,7 @@
       <v-btn icon href="/profile">
         <v-icon>mdi-account-circle</v-icon>
       </v-btn>
-      <v-btn v-on="on" href="#" icon>
-        <v-badge
-          content="1"
-          value="1"
-          color="green"
-          overlap
-        >
-          <v-icon>mdi-bell</v-icon>
-        </v-badge>
-      </v-btn>
+
       
     </v-app-bar>
   
