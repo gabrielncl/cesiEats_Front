@@ -3,6 +3,7 @@
     <v-container>
       <Navbar/>
       <OrderConfirmation/>
+      <Footer/>
     </v-container>
   </div>
 </template>
@@ -10,13 +11,15 @@
 <script>
   import Navbar from "../components/Navbar"
   import OrderConfirmation from "../components/OrderConfirmation"
+  import Navbar from "../components/Footer"
 
   export default ({
-    name: 'Orders',
+    name: 'Order',
 
     components: {
       Navbar,
       OrderConfirmation,
+      Footer
     },
   })
 </script>
