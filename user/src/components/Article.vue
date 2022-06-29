@@ -10,6 +10,7 @@
 		<v-card-subtitle> {{ price }} € </v-card-subtitle>
 
 		<v-card-actions>
+
 			<v-btn color="orange lighten-2" text> Ajouter au panier </v-btn>
 
 			<v-spacer></v-spacer>
