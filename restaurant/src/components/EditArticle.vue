@@ -45,7 +45,7 @@
               >Modifier cet article</v-btn
             >
             <v-btn color="red" text @click="removeArticle(article._id)"
-              >Supprimer</v-btn
+              >Supprimer cet article</v-btn
             >
           </v-form>
         </v-card>
