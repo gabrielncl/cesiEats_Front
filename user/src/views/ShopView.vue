@@ -1,19 +1,16 @@
 <template>
 	<div>
+		<Navbar />
 		<v-container>
 			<v-app>
-				<Navbar />
+				<h1 class="mb-2 text-center">Restaurants</h1>
 				<v-row no-gutters>
-					<v-col :cols="12">
-						<v-card-text class="" tile outlined>
-							<div class="text-center">
-								<h1 class="mb-2">Restaurants</h1>
-							</div>
-							<div v-for="restaurant in restaurants">
-								<Restaurant v-bind:name="restaurant.name" v-bind:id="restaurant._id"></Restaurant>
-							</div>
-						</v-card-text>
-					</v-col>
+					<div v-for="restaurant in restaurants">
+						<Restaurant
+							v-bind:name="restaurant.name"
+							v-bind:id="restaurant._id"
+						></Restaurant>
+					</div>
 				</v-row>
 				<Footer />
 			</v-app>

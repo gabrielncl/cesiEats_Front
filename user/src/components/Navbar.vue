@@ -7,7 +7,7 @@
 			dark
 		>
 			<v-toolbar-title style="width: 350x">
-				<a href="/home" class="white--text" style="text-decoration: none"
+				<a href="/shop/restaurants" class="white--text" style="text-decoration: none"
 					><v-icon>mdi-truck</v-icon>&nbsp;CesiEats</a
 				>
 			</v-toolbar-title>

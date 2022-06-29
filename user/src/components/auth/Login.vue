@@ -58,6 +58,7 @@
 
 <script>
 import axios from "axios";
+
 export default {
 	name: "Login",
 	data() {
@@ -68,10 +69,18 @@ export default {
 	},
 	methods: {
 		async loginUser() {
-			const response = await axios.post("http://api.cesieats.loc/users/login", {
-				email: this.email,
-				password: this.password,
-			});
+			const response = await axios.post(
+				"http://api.cesieats.loc/users/login",
+				{
+					email: this.email,
+					password: this.password,
+				},
+				{
+					headers: {
+						Authorization: "Bearer " + localStorage.getItem("token"),
+					},
+				}
+			);
 			const token = response.data.token;
 			localStorage.setItem("token", token);
 			if (token) {
