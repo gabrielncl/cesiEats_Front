@@ -19,7 +19,10 @@
 								</thead>
 								<tbody>
 									<div v-for="article in articlesInCart">
-										<Cart v-bind:name="article.name" v-bind:price="article.price"/>
+										<Cart
+											v-bind:name="article.name"
+											v-bind:price="article.price"
+										/>
 									</div>
 								</tbody>
 							</template>
@@ -37,23 +40,28 @@
 								<tbody>
 									<tr>
 										<td>Sous total de la commande</td>
-										<td class="text-right" style="width: 50px">$160.00</td>
+										<td class="text-right" style="width: 50px"></td>
 									</tr>
 									<tr>
 										<td>Frais de livraisons</td>
-										<td class="text-right" style="width: 50px">$10.00</td>
+										<td class="text-right" style="width: 50px"></td>
 									</tr>
 									<tr>
 										<td>Total</td>
 										<td class="text-right" style="width: 50px">
-											<b>$175.00</b>
+											<b> </b>
 										</td>
 									</tr>
 								</tbody>
 							</template>
 						</v-simple-table>
 						<div class="text-center">
-							<v-btn class="primary white--text mt-5" outlined>PAYER</v-btn>
+							<v-btn
+								v-on:click="payment"
+								class="primary white--text mt-5"
+								outlined
+								>PAYER</v-btn
+							>
 						</div>
 					</v-col>
 				</v-row>
@@ -76,6 +84,22 @@ export default {
 		Footer,
 		Cart,
 	},
+
+	methods: {
+		payment() {
+			axios
+				.post(
+					"http://api.cesieats.loc/users/cart/payment",
+					{},
+					{
+						headers: {
+							Authorization: "Bearer " + localStorage.getItem("token"),
+						},
+					}
+				)
+				.then(console.log(this.articlesInCart));
+		},
+	},
 	name: "ArticlesInCart",
 	data() {
 		return {
@@ -83,16 +107,10 @@ export default {
 		};
 	},
 	mounted() {
-		axios
-			.get("http://api.cesieats.loc/users/cart", {
-				headers: {
-					Authorization: 'Bearer ' + localStorage.getItem("token"),
-				},
-			})
-			.then((response) => {
-				this.articlesInCart = response.data.cart.article;
-				console.log(this.articlesInCart);
-			});
+		axios.get("http://api.cesieats.loc/users/cart").then((response) => {
+			this.articlesInCart = response.data.cart.article;
+			console.log(this.articlesInCart);
+		});
 	},
 };
 </script>

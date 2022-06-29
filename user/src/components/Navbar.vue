@@ -22,7 +22,7 @@
 			<v-spacer />
 
 			<v-label>
-				<a href="/commandes" class="white--text" style="text-decoration: none"
+				<a href="/orders" class="white--text" style="text-decoration: none"
 					>Commandes</a
 				>
 			</v-label>
