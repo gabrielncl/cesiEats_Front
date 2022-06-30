@@ -10,7 +10,10 @@
 							<template v-slot:default>
 								<tbody>
 									<div v-for="order in orders">
-										<Order v-bind:restaurant_name="order.restaurant[0].name" />
+										<Order
+											v-bind:restaurant_name="order.restaurant[0].name"
+											v-bind:article_name="order.article[0].name"
+										/>
 									</div>
 								</tbody>
 							</template>

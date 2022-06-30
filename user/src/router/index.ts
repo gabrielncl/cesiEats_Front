@@ -11,11 +11,6 @@ import Order from "../views/OrderView.vue";
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
-	/*{
-		path: "/",
-		name: "login",
-		component: Login,
-	},*/
 	{
 		path: "/login",
 		name: "login",
