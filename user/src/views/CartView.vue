@@ -10,11 +10,11 @@
 							<template v-slot:default>
 								<thead>
 									<tr>
-										<th class="text-center">ARTICLE</th>
-										<th class="text-center">PRIX</th>
-										<th class="text-center">QUANTITE</th>
-										<th class="text-center">TOTAL</th>
-										<th class="text-center"></th>
+										<th class="text-center" scope="col">ARTICLE</th>
+										<th class="text-center" scope="col">PRIX</th>
+										<th class="text-center" scope="col">QUANTITE</th>
+										<th class="text-center" scope="col">TOTAL</th>
+										<th class="text-center" scope="col"></th>
 									</tr>
 								</thead>
 								<tbody>
