@@ -78,7 +78,7 @@ export default {
 			if (token) {
 				this.$router.push("/shop/restaurants");
 			} else {
-				this.$router.push("/");
+				this.$router.push("/login");
 			}
 		},
 	},

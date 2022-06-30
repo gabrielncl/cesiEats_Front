@@ -28,7 +28,7 @@
 										class="rounded-0"
 										outlined
 									></v-text-field>
-									  <v-text-field
+									<v-text-field
 										v-model="email"
 										label="Entrer un email"
 										name="email"
@@ -104,8 +104,6 @@ export default {
 				phone: this.phone,
 				password: this.password,
 			});
-		},
-		async loginDeliverer() {
 			const response = await axios.post("http://api.cesieats.loc/deliv/login", {
 				email: this.email,
 				password: this.password,
@@ -113,9 +111,9 @@ export default {
 			const token = response.data.token;
 			localStorage.setItem("token", token);
 			if (token) {
-				this.$router.push("/home");
+				this.$router.push("/orders");
 			} else {
-				this.$router.push("/");
+				this.$router.push("/login");
 			}
 		},
 	},

@@ -17,6 +17,7 @@
 										prepend-inner-icon="mdi-email"
 										type="email"
 										class="rounded-0"
+										:rules= "rules"
 										outlined
 									></v-text-field>
 									<v-text-field
@@ -27,6 +28,7 @@
 										type="password"
 										suffix="| Oublié?"
 										class="rounded-0"
+										:rules= "rules"
 										outlined
 									></v-text-field>
 									<v-btn
@@ -62,22 +64,26 @@ export default {
 	name: "Login",
 	data() {
 		return {
+			rules: [(value) => !!value || "Ce champs est obligatoire"],
 			email: "",
 			password: "",
 		};
 	},
 	methods: {
 		async loginRestaurant() {
-			const response = await axios.post("http://api.cesieats.loc/restaurants/login", {
-				email: this.email,
-				password: this.password,
-			});
+			const response = await axios.post(
+				"http://api.cesieats.loc/restaurants/login",
+				{
+					email: this.email,
+					password: this.password,
+				}
+			);
 			const token = response.data.token;
 			localStorage.setItem("token", token);
 			if (token) {
 				this.$router.push("/shop");
 			} else {
-				this.$router.push("/");
+				this.$router.push("/login");
 			}
 		},
 	},

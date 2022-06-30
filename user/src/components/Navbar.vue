@@ -7,7 +7,10 @@
 			dark
 		>
 			<v-toolbar-title style="width: 350x">
-				<a href="/shop/restaurants" class="white--text" style="text-decoration: none"
+				<a
+					href="/shop/restaurants"
+					class="white--text"
+					style="text-decoration: none"
 					><v-icon>mdi-truck</v-icon>&nbsp;CesiEats</a
 				>
 			</v-toolbar-title>
@@ -27,7 +30,7 @@
 				>
 			</v-label>
 
-			<v-btn icon :href=" id + '/user-panel'">
+			<v-btn icon href="/profile">
 				<v-icon>mdi-account-circle</v-icon>
 			</v-btn>
 			<v-btn href="#" icon>

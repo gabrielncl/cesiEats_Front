@@ -9,7 +9,7 @@
 								<h1 class="mb-2">Connexion</h1>
 							</div>
 							<v-card-text>
-								<v-form @submit.prevent="loginDeliverer">
+								<v-form @submit.prevent="loginUser">
 									<v-text-field
 										v-model="email"
 										label="Entrer un email"
@@ -58,6 +58,7 @@
 
 <script>
 import axios from "axios";
+
 export default {
 	name: "Login",
 	data() {
@@ -67,17 +68,17 @@ export default {
 		};
 	},
 	methods: {
-		async loginDeliverer() {
-			const response = await axios.post("http://api.cesieats.loc/deliv/login", {
+		async loginUser() {
+			const response = await axios.post("http://api.cesieats.loc/users/login", {
 				email: this.email,
 				password: this.password,
 			});
 			const token = response.data.token;
 			localStorage.setItem("token", token);
 			if (token) {
-				this.$router.push("/order");
+				this.$router.push("/orders");
 			} else {
-				this.$router.push("/");
+				this.$router.push("/login");
 			}
 		},
 	},

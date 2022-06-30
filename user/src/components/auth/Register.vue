@@ -115,6 +115,17 @@ export default {
 				email: this.email,
 				password: this.password,
 			});
+			const response = await axios.post("http://api.cesieats.loc/users/login", {
+				email: this.email,
+				password: this.password,
+			});
+			const token = response.data.token;
+			localStorage.setItem("token", token);
+			if (token) {
+				this.$router.push("/shop/restaurants");
+			} else {
+				this.$router.push("/login");
+			}
 		},
 		async loginUser() {
 			const response = await axios.post("http://api.cesieats.loc/users/login", {
@@ -124,9 +135,9 @@ export default {
 			const token = response.data.token;
 			localStorage.setItem("token", token);
 			if (token) {
-				this.$router.push("/home");
+				this.$router.push("/shop/restaurants");
 			} else {
-				this.$router.push("/");
+				this.$router.push("/login");
 			}
 		},
 	},

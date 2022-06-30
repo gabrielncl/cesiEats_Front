@@ -104,6 +104,17 @@ export default {
 				phone: this.phone,
 				password: this.password,
 			});
+			const response = await axios.post("http://api.cesieats.loc/restaurants/login", {
+				email: this.email,
+				password: this.password,
+			});
+			const token = response.data.token;
+			localStorage.setItem("token", token);
+			if (token) {
+				this.$router.push("/orders");
+			} else {
+				this.$router.push("/login");
+			}
 		},
 		async loginRestaurant() {
 			const response = await axios.post("http://api.cesieats.loc/restaurants/login", {
@@ -113,9 +124,9 @@ export default {
 			const token = response.data.token;
 			localStorage.setItem("token", token);
 			if (token) {
-				this.$router.push("/home");
+				this.$router.push("/orders");
 			} else {
-				this.$router.push("/");
+				this.$router.push("/login");
 			}
 		},
 	},

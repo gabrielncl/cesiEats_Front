@@ -10,7 +10,7 @@
 		<v-card-subtitle> {{ price }} € </v-card-subtitle>
 
 		<v-card-actions>
-			<v-btn :href="'/edit-article/' + id" color="orange lighten-2" text>
+			<v-btn v-on:click="editProduct" color="orange lighten-2" text>
 				Modifier l'article
 			</v-btn>
 
@@ -50,5 +50,10 @@ export default {
 			required: true,
 		},
 	},
+	methods: {
+		editProduct(){
+			this.$router.push("/edit-article/" + this.id);
+		}
+	}
 };
 </script>

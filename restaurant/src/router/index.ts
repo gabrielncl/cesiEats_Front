@@ -30,8 +30,8 @@ const routes: Array<RouteConfig> = [
     component: Register
   },
   {
-    path: '/order',
-    name: 'order',
+    path: '/orders',
+    name: 'orders',
     component: Order
   },
   {

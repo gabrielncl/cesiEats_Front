@@ -25,7 +25,7 @@
         <v-icon>mdi-plus-thick</v-icon>
       </v-btn>
 
-      <v-btn icon href="/order">
+      <v-btn icon href="/orders">
         <v-icon>mdi-truck</v-icon>
       </v-btn>
 

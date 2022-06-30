@@ -7,6 +7,7 @@ import Register from "../views/RegisterView.vue";
 import authentication from "../middleware/authentication.js";
 import Article from "../views/ArticleView.vue";
 import Order from "../views/OrderView.vue";
+import Profile from "../views/ProfileView.vue";
 
 Vue.use(VueRouter);
 
@@ -20,6 +21,11 @@ const routes: Array<RouteConfig> = [
 		path: "/register",
 		name: "register",
 		component: Register,
+	},
+	{
+		path: "/profile",
+		name: "profile",
+		component: Profile,
 	},
 	{
 		path: "/cart",

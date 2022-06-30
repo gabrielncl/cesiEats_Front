@@ -5,9 +5,9 @@ import Register from "../views/RegisterView.vue";
 import Profile from "../views/ProfileView.vue";
 // import authentication from "../middleware/authentication.js";
 import OrderConfirmation from "../views/OrderView.vue";
-import OrderStatus from '../views/OrderStatus.vue'
+import OrderStatus from "../views/OrderStatus.vue";
 
-const authentication = require('../middleware/authentication.js');
+const authentication = require("../middleware/authentication.js");
 
 Vue.use(VueRouter);
 
@@ -27,24 +27,19 @@ const routes: Array<RouteConfig> = [
 		name: "profile",
 		component: Profile,
 	},
-  {
-		path: "/order",
-		name: "order",
+	{
+		path: "/orders",
+		name: "orders",
 		component: OrderConfirmation,
-    	// beforeEnter: authentication,
+		// beforeEnter: authentication,
 	},
-  {
-    path: '/register',
-    name: 'register',
-    component: Register
-  },
-  {
-    path: '/order-status/:id',
-    name: 'order-status',
-    component: OrderStatus
-      // beforeEnter: authentication,
-  },
-]
+	{
+		path: "/order-status/:id",
+		name: "order-status",
+		component: OrderStatus,
+		// beforeEnter: authentication,
+	},
+];
 
 const router = new VueRouter({
 	mode: "history",

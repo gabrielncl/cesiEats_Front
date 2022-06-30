@@ -1,7 +1,7 @@
 const authentication = (req, res, next) => {
 	const token = localStorage.getItem("token");
 	if (!token) {
-		return next({ path: "/login" });
+		this.$router.push("/login");
 	}
 	next();
 };
